@@ -1,0 +1,139 @@
+/* ========== Pixel Art Maker styles ========== */
+
+:root {
+  --bg: #1e1b2e;
+  --panel: #2a2640;
+  --ink: #f4f1ff;
+  --muted: #a9a3c7;
+  --accent: #ff6b9d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+}
+
+header { text-align: center; margin-bottom: 1.5rem; }
+header h1 { font-size: 2rem; }
+header p { color: var(--muted); margin-top: 0.25rem; }
+
+main { max-width: 720px; margin: 0 auto; }
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.toolbar label { color: var(--muted); font-size: 0.9rem; }
+.toolbar select {
+  margin-left: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+button {
+  padding: 0.55rem 0.9rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.08s, background 0.15s;
+}
+button:hover { background: #38325a; }
+button:active { transform: scale(0.94); }
+.tools button.active,
+#save-btn, #export-btn {
+  background: var(--accent);
+  color: #fff;
+}
+.tools, .actions { display: flex; gap: 0.5rem; }
+
+/* ---------- Palette ---------- */
+.palette-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.palette { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  padding: 0;
+}
+.swatch.active { border-color: #fff; }
+#custom-color {
+  width: 44px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ---------- Canvas ---------- */
+.canvas-wrap {
+  display: flex;
+  justify-content: center;
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 1.2rem;
+}
+#canvas {
+  width: min(100%, 512px);
+  aspect-ratio: 1 / 1;
+  cursor: crosshair;
+  image-rendering: pixelated; /* keep pixels crisp */
+  background: #ffffff;
+  border-radius: 6px;
+  touch-action: none;
+}
+
+/* ---------- Gallery ---------- */
+.gallery { margin-top: 1.5rem; }
+.gallery h2 { margin-bottom: 0.8rem; font-size: 1.2rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+}
+.gallery-item { position: relative; }
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  image-rendering: pixelated;
+}
+.gallery-item button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.65);
+}
+.muted { color: var(--muted); font-size: 0.9rem; }

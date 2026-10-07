@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Art Maker — Day 12</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🎨 Pixel Art Maker</h1>
+    <p>Draw, save, and export your own pixel art</p>
+  </header>
+
+  <main>
+    <!-- Toolbar: grid size, tools, actions -->
+    <div class="toolbar">
+      <label>
+        Grid
+        <select id="grid-size">
+          <option value="8">8 × 8</option>
+          <option value="16" selected>16 × 16</option>
+          <option value="32">32 × 32</option>
+        </select>
+      </label>
+
+      <div class="tools">
+        <button id="tool-brush" class="active" title="Brush">🖌️</button>
+        <button id="tool-eraser" title="Eraser">🧽</button>
+        <button id="tool-fill" title="Bucket fill">🪣</button>
+      </div>
+
+      <div class="actions">
+        <button id="undo-btn" title="Undo">↩ Undo</button>
+        <button id="clear-btn" title="Clear canvas">🗑 Clear</button>
+        <button id="save-btn" title="Save to gallery">💾 Save</button>
+        <button id="export-btn" title="Export as PNG">⬇ PNG</button>
+      </div>
+    </div>
+
+    <!-- Color palette -->
+    <div class="palette-wrap">
+      <div id="palette" class="palette"></div>
+      <input type="color" id="custom-color" value="#000000" title="Pick a custom color" />
+    </div>
+
+    <!-- The drawing canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="512" height="512"></canvas>
+    </div>
+
+    <!-- Saved gallery -->
+    <section class="gallery">
+      <h2>My Gallery</h2>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <p id="gallery-empty" class="muted">Nothing saved yet — hit 💾 Save when your art is ready.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
